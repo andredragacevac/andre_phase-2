@@ -13,6 +13,7 @@ function App() {
       <Navbar />
       <Home dunks={dunks}/>
       <Vote dunks={dunks}/>
+      <Quiz dunks={dunks}/>
     </div>
 
   );
