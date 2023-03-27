@@ -3,7 +3,7 @@ const dunks = [
     id: 1,
     silhouette: "SB Dunk Low",
     name: "gulf",
-    about: "These are dunks",
+    about: "These dunks are inspired by the 1970 Porsche 917K Gulf.",
     retailprice: 4,
     resellprice: 110,
     releasedate: 2003,

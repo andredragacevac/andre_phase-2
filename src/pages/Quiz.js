@@ -1,31 +1,60 @@
+import {useState} from "react";
+import questions from "../data/questions";
+
 const Quiz =({dunks}) => {
+    const [showResults, setShowResults] = useState(false);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [score, setScore] = useState(0);
 
-    return(
-        <div className="Quiz">
+    const optionClicked = (isCorrect) => {
+        // Increment the score
+        if (isCorrect) {
+        setScore(score + 1);
+        }
+        if (currentQuestion + 1 < questions.length) {
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setShowResults(true);
+        }
+    };
+    const restartGame = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setShowResults(false);
+    };
+
+    return (
+        <>
             <h1>Quiz</h1>
-            <h2>Score: 0</h2>
-            <div className="question-card">
-                <h2>
-                    Question: 1 of 5
-                </h2>
-                <h3 className="question-text"> pays hommage to back to the future</h3>
-                <ul>
-                    <li>grateful</li>
-                    <li>chunky</li>
-                    <li>marty</li>
-                    <li>freddy</li>
-                    <li>Cali</li>
-                </ul>
-
+            <div className="Quiz">
+                <h2>Score: {score}</h2>
+                {showResults ? (
+                <div className="final-results">
+                    <h1>Final Results</h1>
+                    <h2>
+                        {score} of {questions.length} correct - ({(score / questions.length) * 100}%)
+                    </h2>
+                    <button onClick={()=> restartGame()}>Restart</button>
+                </div>
+                ) : (
+                <div className="question-card">
+                    <h2>
+                        Question: {currentQuestion} of {questions.length}
+                    </h2>
+                    <h3 className="question-text"> {questions[currentQuestion].text}</h3>
+                    <ul>
+                        {questions[currentQuestion].options.map((option) => {
+                            return (
+                                <li className="answers" key={option.id}>
+                                    <button  onClick={() => optionClicked(option.isCorrect)}>{option.text}</button>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+                )}
             </div>
-            <div className="final-results">
-                <h1>Final Results</h1>
-                <h2>
-                    1 of 5 correct - (%20)
-                </h2>
-                <button>Restart</button>
-            </div>
-        </div>
+        </>
     )
 }
 export default Quiz;
