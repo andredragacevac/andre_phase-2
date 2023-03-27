@@ -12,6 +12,7 @@ function App() {
     <div>
       <Navbar />
       <Home dunks={dunks}/>
+      <Vote dunks={dunks}/>
     </div>
 
   );
