@@ -63,6 +63,7 @@
   margin-left: 200px;
   margin-right: 200px;
   margin-bottom: 200px;
+  background-color: beige;
 }
 
 .answers {
@@ -71,4 +72,9 @@
   align-items: stretch;
   flex-wrap: wrap;
   margin-right: 30px;
+  padding-bottom: 5px;
+}
+
+.question-card {
+  background-color: orangered;
 }

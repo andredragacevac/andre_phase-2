@@ -1,4 +1,11 @@
+import {useState} from "react";
 const VoteDunkItem =({ silhouette, name, releasedate, retailprice, resellprice, likes }) => {
+
+    const [likeCount, setLikeCount] = useState(0);
+
+    const handleClick = () => {
+        setLikeCount(prevCount => prevCount + 1);
+    }
 
     return(
         <div>
@@ -7,7 +14,7 @@ const VoteDunkItem =({ silhouette, name, releasedate, retailprice, resellprice, 
             <p>{releasedate}</p>
             <p>Retail price: {retailprice}</p>
             <p>Resell Price: {resellprice}</p>
-            <p>Likes: {likes}</p>
+            <button onClick={handleClick}> Likes: {likeCount}</button>
         </div>
         
     )

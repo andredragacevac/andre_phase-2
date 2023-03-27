@@ -1,7 +1,7 @@
 import {useState} from "react";
 import questions from "../data/questions";
 
-const Quiz =({dunks}) => {
+const Quiz = () => {
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
