@@ -1,10 +1,10 @@
 const DunkItem = ( {silhouette, name, releasedate} ) => {
     return (
-        <div>
+        <li className="dunk">
             <h2>DunkItem</h2>
             <p>{silhouette}: {name}</p>
             <p>{releasedate}</p>
-        </div>
+        </li>
 
     )
 }

@@ -6,7 +6,7 @@ const Vote =({dunks}) => {
     return(
         <div>
             <h1>Vote</h1>
-            <ul>{votedunkItems}</ul>    
+            <ul className="vote-dunks-container">{votedunkItems}</ul>    
         </div>
     )
 }

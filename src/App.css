@@ -47,7 +47,6 @@
   margin-bottom: 1rem!important;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
-
 .cards {
   margin: 0 auto;
   list-style: none;
@@ -77,4 +76,44 @@
 
 .question-card {
   background-color: orangered;
+}
+
+.vote-dunks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.vote-dunk {
+  list-style: none;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+}
+
+.dunk {
+  list-style: none;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px;
+}
+
+.vote-dunk button {
+  margin-bottom: 2px;
+  margin-left: 90px;
+  margin-right: 90px
+}
+
+.searchbar {
+  margin-left: 650px;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  transition: all 0.3s;
 }

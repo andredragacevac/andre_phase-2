@@ -38,10 +38,13 @@ const Quiz = () => {
                 </div>
                 ) : (
                 <div className="question-card">
+
                     <h2>
                         Question: {currentQuestion} of {questions.length}
                     </h2>
+
                     <h3 className="question-text"> {questions[currentQuestion].text}</h3>
+                    
                     <ul>
                         {questions[currentQuestion].options.map((option) => {
                             return (

@@ -8,14 +8,13 @@ const VoteDunkItem =({ silhouette, name, releasedate, retailprice, resellprice, 
     }
 
     return(
-        <div>
+        <li className="vote-dunk">
             <h1>VoteDunkItem</h1>
             <p>{silhouette}: {name}</p>
             <p>{releasedate}</p>
-            <p>Retail price: {retailprice}</p>
-            <p>Resell Price: {resellprice}</p>
-            <button onClick={handleClick}> Likes: {likeCount}</button>
-        </div>
+            <p>Retail Price: {retailprice}</p> <p>Resell Price: {resellprice}</p>
+            <button onClick={handleClick}> Like {likeCount}</button>
+        </li>
         
     )
 }

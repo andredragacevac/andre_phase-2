@@ -4,26 +4,29 @@ import Home from './pages/Home';
 import Vote from './pages/Vote';
 import Quiz from './pages/Quiz';
 import Navbar from './components/Navbar';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [dunks, setDunks] = useState([]);
-
   const [searchQuery, setSearchQuery] = useState("");
 
-  const fetchDunks = () => {
+  useEffect (() => {
     fetch("http://localhost:4000/dunks")
       .then(res=> res.json())
       .then(dunks => setDunks(dunks))
-  }
+  }, []);
 
+  //search handler
   const filteredDunks = dunks.filter(dunk => {
     return dunk.name.toLowerCase().includes(searchQuery.toLowerCase());
   })
+
+  
+
   return (
     <div>
       <Navbar />
-      <Home fetchDunks={fetchDunks}
+      <Home
         setSearchQuery={setSearchQuery}
         filteredDunks={filteredDunks}
       />
