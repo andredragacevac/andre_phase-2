@@ -47,3 +47,12 @@
   margin-bottom: 1rem!important;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
+
+.cards {
+  margin: 0 auto;
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
