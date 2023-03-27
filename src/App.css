@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  margin-bottom: 1.5rem !important;
+}
+
+.Navbar {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-white-rgb),var(--bs-bg-opacity))!important;
+  margin-bottom: 1rem!important;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
