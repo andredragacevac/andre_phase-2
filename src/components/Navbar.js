@@ -2,9 +2,9 @@ import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
     return (
-    <NavbarBs className="Navbar">
+    <NavbarBs sticky="top" className="Navbar">
         <Container>
-            <Nav>
+            <Nav className="me-auto">
                 <Nav.Link to="/" as={NavLink}>
                     Home
                 </Nav.Link>
