@@ -1,7 +1,7 @@
 import {useState} from "react";
 import questions from "../data/questions";
 
-const Quiz = () => {
+const QuizComponent = () => {
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -25,8 +25,8 @@ const Quiz = () => {
 
     return (
         <>
-            <h1>Quiz</h1>
-            <div className="Quiz">
+            <h1>QuizComponent</h1>
+            <div className="QuizComponent">
                 <h2>Score: {score}</h2>
                 {showResults ? (
                 <div className="final-results">
@@ -60,4 +60,4 @@ const Quiz = () => {
         </>
     )
 }
-export default Quiz;
+export default QuizComponent;

@@ -11,7 +11,10 @@ const Navbar = () => {
                 <Nav.Link to="/Vote" as={NavLink}>
                     Vote
                 </Nav.Link>
-                <Nav.Link to="/Quiz" as={NavLink}>
+                <Nav.Link to="/Form" as={NavLink}>
+                    Form
+                </Nav.Link>
+                <Nav.Link to="/QuizPage" as={NavLink}>
                     Quiz
                 </Nav.Link>
             </Nav>

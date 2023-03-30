@@ -2,9 +2,9 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Vote from './pages/Vote';
-import Quiz from './components/Quiz';
+import Form from './pages/Form';
+import QuizPage from './pages/QuizPage';
 import Navbar from './components/Navbar';
-import DunkForm from './components/DunkForm';
 import { useEffect, useState } from "react";
 
 function App() {
@@ -16,6 +16,11 @@ function App() {
       .then(res=> res.json())
       .then(dunks => setDunks(dunks))
   }, []);
+  // useEffect (() => {
+  //   fetch("http://localhost:4000/dunks")
+  //     .then(res=> res.json())
+  //     .then(dunks => setDunks(dunks))
+  // }, []);
 
   //SearchBar
   const filteredDunks = dunks.filter(dunk => {
@@ -31,18 +36,34 @@ function App() {
 
 
   return (
-    <div>
-      <Navbar />
-      <Home
-        setSearchQuery={setSearchQuery}
-        filteredDunks={filteredDunks}
-      />
-      <Vote dunks={dunks}/>
-      <DunkForm 
-        onAddDunk={onAddDunk}
-      />
-      <Quiz dunks={dunks}/>
-    </div>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home 
+            setSearchQuery={setSearchQuery} 
+            filteredDunks={filteredDunks}/>}
+            >
+          </Route>
+
+          <Route path="/Vote" element={<Vote 
+              dunks={dunks}
+             />}
+            >
+            
+          </Route>
+
+          <Route path="/Form" element={<Form 
+            onAddDunk={onAddDunk}/>}
+            >
+          </Route>
+
+          <Route path="/Quiz" element={<QuizPage 
+            dunks={dunks}/>}
+            >
+          </Route>
+
+        </Routes>
+      </div>
 
   );
 }
