@@ -24,6 +24,11 @@ function App() {
 
   //Quiz
 
+  //Form
+  const onAddDunk = (newDunk) =>{
+    setDunks([...dunks, newDunk])
+  }
+
 
   return (
     <div>
@@ -33,7 +38,9 @@ function App() {
         filteredDunks={filteredDunks}
       />
       <Vote dunks={dunks}/>
-      <DunkForm />
+      <DunkForm 
+        onAddDunk={onAddDunk}
+      />
       <Quiz dunks={dunks}/>
     </div>
 
