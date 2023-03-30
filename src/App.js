@@ -2,8 +2,9 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Vote from './pages/Vote';
-import Quiz from './pages/Quiz';
+import Quiz from './components/Quiz';
 import Navbar from './components/Navbar';
+import DunkForm from './components/DunkForm';
 import { useEffect, useState } from "react";
 
 function App() {
@@ -16,12 +17,13 @@ function App() {
       .then(dunks => setDunks(dunks))
   }, []);
 
-  //search handler
+  //SearchBar
   const filteredDunks = dunks.filter(dunk => {
     return dunk.name.toLowerCase().includes(searchQuery.toLowerCase());
   })
 
-  
+  //Quiz
+
 
   return (
     <div>
@@ -31,6 +33,7 @@ function App() {
         filteredDunks={filteredDunks}
       />
       <Vote dunks={dunks}/>
+      <DunkForm />
       <Quiz dunks={dunks}/>
     </div>
 

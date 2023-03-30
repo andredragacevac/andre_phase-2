@@ -61,7 +61,7 @@
   border-style: solid;
   margin-left: 200px;
   margin-right: 200px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   background-color: beige;
 }
 
@@ -116,4 +116,15 @@
   padding: 0.5rem;
   font-size: 1.25rem;
   transition: all 0.3s;
+}
+
+.dunk-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: stretch;
+}
+.hidden {
+  display: none;
 }

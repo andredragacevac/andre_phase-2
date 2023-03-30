@@ -1,6 +1,5 @@
 import {useState} from "react";
 import questions from "../data/questions";
-import DunkForm from "../components/DunkForm";
 
 const Quiz = () => {
     const [showResults, setShowResults] = useState(false);
@@ -45,7 +44,7 @@ const Quiz = () => {
                     </h2>
 
                     <h3 className="question-text"> {questions[currentQuestion].text}</h3>
-
+                    
                     <ul>
                         {questions[currentQuestion].options.map((option) => {
                             return (
@@ -57,10 +56,6 @@ const Quiz = () => {
                     </ul>
                 </div>
                 )}
-            </div>
-            <div className="form">
-                <h1>Form</h1>
-                <DunkForm />
             </div>
         </>
     )

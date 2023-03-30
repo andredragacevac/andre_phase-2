@@ -1,13 +1,10 @@
 import DunkItem from "../components/DunkItem";
-import { useState } from "react";
 
 const Home =({ setSearchQuery, filteredDunks }) => {
 
     const handleSearch = (e) =>{
         setSearchQuery(e.target.value)
     }
-
-    
 
     const dunkItems = filteredDunks.map((dunk) => {
         return <DunkItem key={dunk.id} {...dunk}/>
