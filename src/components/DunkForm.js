@@ -2,63 +2,77 @@ import { useState } from "react";
 
 const DunkForm = () =>{
 
-    
+    const [formData, setFormData ] = useState({
+        silhouette: "",
+        name: "",
+        date: "",
+        retail: "",
+        resell: "",
+        about: "",
+    });
+    const { silhouette, name, date, resell, retail, about} = formData;
 
-    const [ name, nameSetter ] = useState("");
+    const handleOnChange =(e) => {
 
-    const [ date, dateSetter ] = useState("");
+     const { name, value } = e.target;
 
-    const [ retail, retailSetter ] = useState("");
-
-    const handleDate = (e) => {
-        dateSetter(e.target.value);
+     setFormData({...formData, [name]: value})
     }
-    const handleName = (e) => {
-        nameSetter(e.target.value);
-    }
-    const handleRetail = (e) => {
-        retailSetter(e.target.value);
-    }
-
-
     return(
         <div className="dunk-form">
             <h1>Form</h1>
             <h3>Add Your Favorite Dunks</h3>
 
             <label >SB Dunk </label>
-            <select name="silhouette" id="silhouette">
-                <option value="">Choose Silhouette</option>
-                <option value="">High</option>
-                <option value="">Low</option>
+            <select type="text"
+                name="silhouette"
+                value={silhouette}
+                onChange={handleOnChange}
+            >
+                <option>Choose Silhouette</option>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
             </select>
-
+            
             <label>Name: </label>
             <input type="text"
                 placeholder="enter dunk name"
-                value={name}
-                onChange={handleName}
+                name="name"
+                value={formData.name}
+                onChange={handleOnChange}
             />
 
             <label>Release Date</label>
             <input type="text" 
                 placeholder="enter release date" 
-                value={date}
-                onChange={handleDate}
+                name="date"
+                value={formData.date}
+                onChange={handleOnChange}
             />
 
             <label>Retail Price</label>
-            <input type="text" 
+            <input type="retail" 
                 placeholder="enter retail price"
-                value={retail}
-                onChange={handleRetail}
+                name="retail"
+                value={formData.retail}
+                onChange={handleOnChange}
             />
 
             <label>Resell Price</label>
-            <input type="text" placeholder="enter most recent resell price"/>
+            <input type="text" 
+                placeholder="enter most recent resell price"
+                name="resell"
+                value={formData.resell}
+                onChange={handleOnChange}
+            />
 
             <label>About</label>
-            <input type="text" placeholder="Any fun facts!"></input>
+            <input type="text" 
+                placeholder="Any fun facts!"
+                name="about"
+                value={formData.about}
+                onChange={handleOnChange}
+            />
         </div>
     )
 }
