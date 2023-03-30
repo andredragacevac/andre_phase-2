@@ -1,11 +1,23 @@
 import { useState } from "react";
 
 const DunkForm = () =>{
+
     
+
+    const [ name, nameSetter ] = useState("");
+
     const [ date, dateSetter ] = useState("");
+
+    const [ retail, retailSetter ] = useState("");
 
     const handleDate = (e) => {
         dateSetter(e.target.value);
+    }
+    const handleName = (e) => {
+        nameSetter(e.target.value);
+    }
+    const handleRetail = (e) => {
+        retailSetter(e.target.value);
     }
 
 
@@ -22,7 +34,11 @@ const DunkForm = () =>{
             </select>
 
             <label>Name: </label>
-            <input type="text"placeholder="enter dunk name"/>
+            <input type="text"
+                placeholder="enter dunk name"
+                value={name}
+                onChange={handleName}
+            />
 
             <label>Release Date</label>
             <input type="text" 
@@ -32,7 +48,11 @@ const DunkForm = () =>{
             />
 
             <label>Retail Price</label>
-            <input type="text" placeholder="enter retail price"/>
+            <input type="text" 
+                placeholder="enter retail price"
+                value={retail}
+                onChange={handleRetail}
+            />
 
             <label>Resell Price</label>
             <input type="text" placeholder="enter most recent resell price"/>
