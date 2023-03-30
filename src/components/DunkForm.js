@@ -5,9 +5,9 @@ const DunkForm = ({onAddDunk}) =>{
     const initialValues = {
         silhouette: "",
         name: "",
-        date: "",
-        retail: "",
-        resell: "",
+        releasedate: "",
+        retailprice: "",
+        resellprice: "",
         about: "",
     }
 
@@ -15,18 +15,27 @@ const DunkForm = ({onAddDunk}) =>{
 
     const { silhouette, name, releasedate, resellprice, retailprice, about} = formData;
 
-    const handleOnChange =(e) => {
-
+    const handleFormData =(e) => {
      const { name, value } = e.target;
-
      setFormData({...formData, [name]: value})
+    }
+
+    const configPOST = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        onAddDunk(formData)
-
+        fetch("http://localhost:4000/dunks", configPOST )
+            .then(res => res.json)
+            .then(newDunk => {
+                onAddDunk(newDunk);
+            }
+        )
         setFormData(initialValues)
     }
 
@@ -39,7 +48,7 @@ const DunkForm = ({onAddDunk}) =>{
             <select type="text"
                 name="silhouette"
                 value={silhouette}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             >
                 <option>Choose Silhouette</option>
                 <option value="SB Dunk High">High</option>
@@ -51,31 +60,31 @@ const DunkForm = ({onAddDunk}) =>{
                 placeholder="enter dunk name"
                 name="name"
                 value={name}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             />
 
             <label>Release Date:</label>
             <input type="text" 
                 placeholder="enter release date" 
-                name="date"
+                name="releasedate"
                 value={releasedate}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             />
 
             <label>Retail Price:</label>
             <input type="retail" 
                 placeholder="enter retail price"
-                name="retail"
+                name="retailprice"
                 value={retailprice}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             />
 
             <label>Resell Price:</label>
             <input type="text" 
                 placeholder="enter most recent resell price"
-                name="resell"
+                name="resellprice"
                 value={resellprice}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             />
 
             <label>About:</label>
@@ -83,7 +92,7 @@ const DunkForm = ({onAddDunk}) =>{
                 placeholder="Any fun facts!"
                 name="about"
                 value={about}
-                onChange={handleOnChange}
+                onChange={handleFormData}
             />
             <button type="submit">Add Dunk</button>
         </form>
